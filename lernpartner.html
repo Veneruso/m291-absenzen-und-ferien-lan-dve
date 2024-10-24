@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login als Lernpartner</title>
+    <link rel="stylesheet" href="/assets/style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 150px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .login-main {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            font-weight: bold;
+            text-align: left;
+            display: block;
+            margin-top: 20px;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .login-btn {
+            display: inline-block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 15px;
+            background-color: #5c9cf0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #407ac0;
+        }
+
+        .previous {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #5c9cf0;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .previous:hover {
+            background-color: #407ac0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-main">
+        <header>
+            <img src="assets/images/sbw-logo.svg" alt="SBW Logo" class="logo">
+        </header>
+
+        <main>
+            <h1>Login als Lernpartner</h1>
+
+            <label for="name">Vollständiger Name:</label>
+            <select id="name">
+                <option value="" disabled selected>Wählen Sie Ihren Namen</option>
+            </select>
+
+            <label for="id">Lernpartner ID:</label>
+            <input type="number" id="id" placeholder="Geben Sie Ihre ID ein" required>
+
+            <button class="login-btn" id="weiterBtn" onclick="verifyLogin()">Weiter</button>
+
+            <a href="login.html" class="previous">&laquo; Zurück</a>
+
+            <div id="actions" style="display:none;">
+                <button class="login-btn" onclick="window.location.href='absenz-anmelden.html'">Absenz anmelden</button>
+                <button class="login-btn" onclick="window.location.href='ferien-ansprueche.html'">Ferienansprüche
+                    ansehen</button>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const select = document.getElementById('name');
+        const idInput = document.getElementById('id');
+        select.addEventListener('change', () => {
+            idInput.value = select.value;
+        })
+
+        fetch('https://api-sbw-plc.sbw.media/Student[0,78]')
+            .then(response => response.json())
+            .then(data => {
+
+                data.resources.forEach(student => {
+                    const option = document.createElement('option');
+                    option.value = student.id;
+                    option.text = `${student.firstname} ${student.name}`;
+                    select.add(option);
+                });
+            });
+
+        function verifyLogin() {
+            const name = document.getElementById('name').selectedOptions[0].text;
+            const id = document.getElementById('id').value;
+
+            if (name && id) {
+                localStorage.setItem('lernpartnerName', name);
+                localStorage.setItem('lernpartnerId', id);
+
+                document.getElementById('actions').style.display = 'block';
+                document.getElementById('weiterBtn').style.display = 'none';
+            } else {
+                alert('Bitte geben Sie sowohl Ihren Namen als auch Ihre ID ein.');
+            }
+        }
+    </script>
+</body>
+
+</html>

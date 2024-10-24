@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferienansprüche</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: #f4f7fc;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #5c9cf0;
+            color: white;
+            font-size: 18px;
+        }
+
+        td {
+            font-size: 16px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="assets/images/sbw-logo.svg" alt="SBW Logo" class="logo">
+    </header>
+    <main class="register-main" id="ferienAnspruchApp">
+        <h1>Ferienansprüche</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Lernpartner Name</th>
+                    <th>Verbleibende Ferientage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ studentName }}</td>
+                    <td>{{ ferienTage }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="login.html" class="previous">&laquo; Zurück</a>
+    </main>
+
+    <script>
+        const ferienAnspruchApp = Vue.createApp({
+            data() {
+                return {
+                    studentName: localStorage.getItem('lernpartnerName') || 'Unbekannt',
+                    ferienTage: this.getRemainingFerienTage()
+                }
+            },
+            methods: {
+                getRemainingFerienTage() {
+                    const studentID = localStorage.getItem('lernpartnerId');
+                    const ferienData = JSON.parse(localStorage.getItem('ferienData')) || {};
+                    return ferienData[studentID] || 25;
+                }
+            }
+        }).mount('#ferienAnspruchApp');
+    </script>
+</body>
+</html>

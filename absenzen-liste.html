@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absenzen Liste</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 150px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        table {
+            width: 60%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: white;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #5c9cf0;
+            color: white;
+        }
+
+        td {
+            font-size: 16px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        a.previous {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #5c9cf0;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        a.previous:hover {
+            background-color: #407ac0;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <header>
+            <img src="assets/images/sbw-logo.svg" alt="SBW Logo" class="logo">
+        </header>
+
+        <main id="absenzenListeApp">
+            <h1>Absenzen und Ferien Liste</h1>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Lernpartner Name</th>
+                        <th>Startdatum</th>
+                        <th>Startzeit</th>
+                        <th>Enddatum</th>
+                        <th>Endzeit</th>
+                        <th>Grund</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="absenz in absenzen">
+                        <td>{{ absenz.name }}</td>
+                        <td>{{ absenz.startDatum }}</td>
+                        <td>{{ absenz.startZeit }}</td>
+                        <td>{{ absenz.endDatum }}</td>
+                        <td>{{ absenz.endZeit }}</td>
+                        <td>{{ absenz.grund }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <a href="login.html" class="previous">&laquo; Zurück</a>
+        </main>
+    </div>
+
+    <script>
+        const absenzenListeApp = Vue.createApp({
+            data() {
+                return {
+                    absenzen: JSON.parse(localStorage.getItem('absenzen')) || []
+                }
+            }
+        }).mount('#absenzenListeApp');
+    </script>
+</body>
+</html>
