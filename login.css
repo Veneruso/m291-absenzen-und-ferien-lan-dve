@@ -1,0 +1,185 @@
+/* Grundlegendes Layout und Hintergrund */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    overflow: hidden;
+}
+ 
+/* Kopfbereich und Logo */
+header {
+    margin-bottom: 30px;
+}
+ 
+.logo {
+    width: 120px;
+    animation: float 3s ease-in-out infinite;
+}
+ 
+/* Animation für das Logo */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+ 
+/* Titel und Text */
+h1 {
+    font-size: 36px;
+    color: #2b3d4f;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: fadeIn 2s ease forwards;
+    opacity: 0;
+}
+ 
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+ 
+/* Login Hauptbox */
+.login-main {
+    background-color: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    animation: slideUp 1.5s ease-out forwards;
+    transform: translateY(50px);
+    opacity: 0;
+    max-width: 400px; /* maximale Breite festlegen */
+    width: 100%; /* für mobile Geräte */
+}
+ 
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+ 
+/* Eingabefelder */
+input[type="text"],
+input[type="number"] {
+    width: 100%; /* Einheitliche Breite */
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Login-Button Stil */
+.login-btn {
+    display: inline-block;
+    margin: 20px auto;
+    padding: 18px 35px;
+    background: linear-gradient(135deg, #72edf2, #5151e5);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    width: 70%;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+ 
+.login-btn:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+}
+ 
+/* Fußzeile */
+footer {
+    margin-top: 50px;
+    font-size: 14px;
+    color: #888;
+}
+
+
+/* Responsives Design für das iPhone 12 und kleinere Geräte */
+@media only screen and (max-width: 1170px) {
+    body {
+        padding: 20px; /* stellt sicher, dass der weiße Kasten die Ränder nicht berührt */
+    }
+
+    .login-main {
+        padding: 30px; /* mehr Innenabstand */
+    }
+
+    .logo {
+        width: 80px; /* kleinere Logo-Größe */
+        margin-top: 1cm;
+        margin-bottom: 20px; /* etwas Abstand nach unten zum Logo */
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .login-btn {
+        font-size: 18px;
+        padding: 15px 30px;
+        width: 80%;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    .login-main {
+        width: 400%;
+        padding: 20px; /* noch mehr Innenabstand für kleinere Bildschirme */
+    }
+
+    .login-btn {
+        font-size: 16px;
+        padding: 12px 25px;
+        width: 90%;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+
+/* Login-Button Stil */
+.login-btn {
+    display: inline-block;
+    margin: 20px auto;
+    padding: 18px 35px;
+    background: linear-gradient(135deg, #72edf2, #5151e5);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    width: 70%;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}

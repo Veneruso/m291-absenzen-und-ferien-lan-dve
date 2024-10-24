@@ -1,98 +1,16 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Absenz anmelden</title>
-    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="absenzen-anmelden.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f7fc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-        }
 
-        header {
-            margin-bottom: 20px;
-        }
 
-        .logo {
-            width: 150px;
-        }
-
-        h1 {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .login-main {
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        label {
-            font-weight: bold;
-            text-align: left;
-            display: block;
-            margin-top: 20px;
-        }
-
-        input, select {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
-
-        .login-btn {
-            display: inline-block;
-            width: 100%;
-            margin: 10px 0;
-            padding: 15px;
-            background-color: #5c9cf0;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .login-btn:hover {
-            background-color: #407ac0;
-        }
-
-        .previous {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #5c9cf0;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .previous:hover {
-            background-color: #407ac0;
-        }
-    </style>
 </head>
+
 <body>
     <div class="login-main">
         <header>
@@ -125,9 +43,6 @@
 
             <a href="login.html" class="previous">&laquo; Zurück</a>
 
-            <div v-if="confirmationMessage" id="confirmation">
-                <p>{{ confirmationMessage }}</p>
-            </div>
         </main>
     </div>
 
@@ -141,9 +56,8 @@
                         StartTime: "",
                         ToDate: "",
                         EndTime: "",
-                        Reason: "Ferien"
-                    },
-                    confirmationMessage: null
+                        Reason: "Ferien", // Standard auf "Ferien"
+                    }
                 };
             },
             methods: {
@@ -154,19 +68,37 @@
                         startZeit: this.vacation.StartTime,
                         endDatum: this.vacation.ToDate,
                         endZeit: this.vacation.EndTime,
-                        grund: this.vacation.Reason
+                        grund: this.vacation.Reason,
                     };
 
                     let absenzen = JSON.parse(localStorage.getItem('absenzen')) || [];
-
                     absenzen.push(vacationData);
-
                     localStorage.setItem('absenzen', JSON.stringify(absenzen));
 
-                    this.confirmationMessage = "Absenz gesendet";
+                    // Nur Ferientage abziehen, wenn der Grund "Ferien" ist
+                    if (this.vacation.Reason === 'Ferien') {
+                        const startDate = new Date(this.vacation.FromDate);
+                        const endDate = new Date(this.vacation.ToDate);
+                        const timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
+                        const daysDifference = Math.ceil(timeDiff / (1000 * 3600 * 24)) + 1; // Berechnet die Anzahl der Tage inklusive Enddatum
+
+                        let ferienData = JSON.parse(localStorage.getItem('ferienData')) || {};
+                        let studentID = localStorage.getItem('lernpartnerId');
+                        let ferienTage = ferienData[studentID] || 25;
+
+                        // Überprüfen, ob genügend Ferientage übrig sind
+                        if (ferienTage >= daysDifference) {
+                            ferienTage -= daysDifference;
+                            ferienData[studentID] = ferienTage; // Speichern für den aktuellen Nutzer
+                            localStorage.setItem('ferienData', JSON.stringify(ferienData));
+                        } else {
+                            alert("Nicht genügend Ferientage verfügbar.");
+                        }
+                    }
                 }
             }
         }).mount("#register");
     </script>
 </body>
+
 </html>

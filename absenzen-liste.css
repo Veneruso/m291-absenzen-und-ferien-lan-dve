@@ -1,0 +1,424 @@
+/* Grundlegendes Layout und Hintergrund */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+/* Kopfbereich und Logo */
+header {
+    margin-bottom: 30px;
+}
+
+.logo {
+    margin-top: 1cm;
+    width: 120px;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Animation für das Logo */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Titel und Text */
+h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeIn 2s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Tabelle */
+table {
+    width: 60%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* Einheitlicher Schatten */
+    background-color: white;
+    border-radius: 10px; /* Abgerundete Ecken */
+    overflow: hidden; /* Vermeidung von Überlauf */
+}
+
+/* Tabellenüberschrift */
+th {
+    padding: 15px 20px;
+    background-color: #5151e5; /* Einheitliche Farbe im Design */
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+/* Tabellenzellen */
+td {
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Abwechselnde Zeilenfarbe */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Tabellenzeilen Hover-Effekt */
+tr:hover {
+    background-color: #e0e7ff; /* Interaktiver Hover-Effekt */
+}
+
+
+/* Zurück-Button */
+.previous {
+    display: inline-block;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    padding: 10px 20px;
+    background-color: #5151e5; /* Gleiche Farbpalette wie bei anderen Elementen */
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+/* Grundlegendes Layout und Hintergrund */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 0 20px; /* Verhindert, dass der Inhalt den Rand berührt */
+}
+
+/* Kopfbereich und Logo */
+header {
+    margin-bottom: 30px;
+}
+
+.logo {
+    margin-top: 50px; /* Mehr Abstand zum oberen Rand */
+    width: 100px; /* Kleinere Logo-Größe für das iPhone */
+    animation: float 3s ease-in-out infinite;
+    margin: 0 auto; /* Zentrierung des Logos */
+}
+
+/* Animation für das Logo */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Geringere Schwebehöhe */
+    }
+}
+
+/* Titel und Text */
+h1 {
+    font-size: 24px; /* Kleinere Schriftgröße für mobile Geräte */
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeIn 2s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Tabelle */
+table {
+    width: 100%; /* Volle Breite auf kleineren Bildschirmen */
+    margin: 20px 0;
+    border-collapse: collapse;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* Einheitlicher Schatten */
+    background-color: white;
+    border-radius: 10px; /* Abgerundete Ecken */
+    overflow: hidden;
+}
+
+/* Tabellenüberschrift */
+th {
+    padding: 12px 15px; /* Weniger Padding für kleinere Bildschirme */
+    background-color: #5151e5; /* Einheitliche Farbe im Design */
+    color: white;
+    font-size: 16px; /* Kleinere Schriftgröße */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+/* Tabellenzellen */
+td {
+    padding: 12px 15px; /* Weniger Padding */
+    border: 1px solid #ddd;
+    font-size: 14px; /* Kleinere Schriftgröße */
+    color: #333;
+}
+
+/* Abwechselnde Zeilenfarbe */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Tabellenzeilen Hover-Effekt */
+tr:hover {
+    background-color: #e0e7ff; /* Interaktiver Hover-Effekt */
+}
+
+/* Zurück-Button */
+.previous {
+    display: inline-block;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    padding: 8px 15px; /* Kleinere Größe für mobile Geräte */
+    background-color: #5151e5;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 12px; /* Kleinere Schriftgröße */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.previous:hover {
+    background-color: #407ac0;
+    transform: translateY(-3px);
+}
+
+/* Responsive Anpassungen für das iPhone 12 */
+@media only screen and (max-width: 1170px) {
+   /* Grundlegendes Layout und Hintergrund */
+
+
+/* Kopfbereich und Logo */
+
+.logo {
+    margin-top: 1cm;
+    width: 120px;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Animation für das Logo */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Titel und Text */
+h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 25px;
+    margin-left: 1.5cm;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeIn 2s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Tabelle */
+table {
+    width: 60%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* Einheitlicher Schatten */
+    background-color: white;
+    border-radius: 10px; /* Abgerundete Ecken */
+    overflow: hidden; /* Vermeidung von Überlauf */
+}
+
+/* Tabellenüberschrift */
+th {
+    padding: 15px 20px;
+    background-color: #5151e5; /* Einheitliche Farbe im Design */
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+/* Tabellenzellen */
+td {
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Abwechselnde Zeilenfarbe */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Tabellenzeilen Hover-Effekt */
+tr:hover {
+    background-color: #e0e7ff; /* Interaktiver Hover-Effekt */
+}
+
+
+/* Zurück-Button */
+.previous {
+    display: inline-block;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    padding: 10px 20px;
+    background-color: #5151e5; /* Gleiche Farbpalette wie bei anderen Elementen */
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+/* Grundlegendes Layout und Hintergrund */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 0 20px; /* Verhindert, dass der Inhalt den Rand berührt */
+}
+
+/* Kopfbereich und Logo */
+header {
+    margin-bottom: 30px;
+}
+
+.logo {
+    margin-top: 50px; /* Mehr Abstand zum oberen Rand */
+    width: 100px; /* Kleinere Logo-Größe für das iPhone */
+    animation: float 3s ease-in-out infinite;
+    margin: 0 auto; /* Zentrierung des Logos */
+}
+
+/* Animation für das Logo */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Geringere Schwebehöhe */
+    }
+}
+
+/* Titel und Text */
+h1 {
+    font-size: 24px; /* Kleinere Schriftgröße für mobile Geräte */
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeIn 2s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Tabelle */
+table {
+    width: 100%; /* Volle Breite auf kleineren Bildschirmen */
+    margin: 20px 0;
+    border-collapse: collapse;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* Einheitlicher Schatten */
+    background-color: white;
+    border-radius: 10px; /* Abgerundete Ecken */
+    overflow: hidden;
+}
+
+/* Tabellenüberschrift */
+th {
+    padding: 12px 15px; /* Weniger Padding für kleinere Bildschirme */
+    background-color: #5151e5; /* Einheitliche Farbe im Design */
+    color: white;
+    font-size: 16px; /* Kleinere Schriftgröße */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+/* Tabellenzellen */
+td {
+    padding: 12px 15px; /* Weniger Padding */
+    border: 1px solid #ddd;
+    font-size: 14px; /* Kleinere Schriftgröße */
+    color: #333;
+}
+
+/* Abwechselnde Zeilenfarbe */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Tabellenzeilen Hover-Effekt */
+tr:hover {
+    background-color: #e0e7ff; /* Interaktiver Hover-Effekt */
+}
+
+/* Zurück-Button */
+.previous {
+    display: inline-block;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    padding: 8px 15px; /* Kleinere Größe für mobile Geräte */
+    background-color: #5151e5;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 12px; /* Kleinere Schriftgröße */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.previous:hover {
+    background-color: #407ac0;
+    transform: translateY(-3px);
+}

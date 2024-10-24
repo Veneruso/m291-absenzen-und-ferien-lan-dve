@@ -4,44 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ferienansprüche</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="ferien-anspüche.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <style>
-        table {
-            width: 50%;
-            margin: 20px auto;
-            border-collapse: collapse;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            background-color: #f4f7fc;
-        }
-        
-        th, td {
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-        
-        th {
-            background-color: #5c9cf0;
-            color: white;
-            font-size: 18px;
-        }
-
-        td {
-            font-size: 16px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        h1 {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 24px;
-            color: #333;
-        }
-    </style>
+    
 </head>
 <body>
     <header>
@@ -73,15 +38,18 @@
             data() {
                 return {
                     studentName: localStorage.getItem('lernpartnerName') || 'Unbekannt',
-                    ferienTage: this.getRemainingFerienTage()
-                }
+                    ferienTage: 25 // Standardwert, falls keine Daten vorhanden sind
+                };
             },
             methods: {
                 getRemainingFerienTage() {
                     const studentID = localStorage.getItem('lernpartnerId');
                     const ferienData = JSON.parse(localStorage.getItem('ferienData')) || {};
-                    return ferienData[studentID] || 25;
+                    this.ferienTage = ferienData[studentID] !== undefined ? ferienData[studentID] : 25;
                 }
+            },
+            mounted() {
+                this.getRemainingFerienTage(); // Beim Laden der Seite die verbleibenden Ferientage holen
             }
         }).mount('#ferienAnspruchApp');
     </script>
