@@ -8,17 +8,17 @@ body {
     align-items: center;
     min-height: 100vh;
     text-align: center;
-    padding: 0 20px; /* Verhindert, dass Inhalte den Rand der Seite berühren */
+    padding: 0 10px;
     overflow: hidden;
 }
 
 /* Kopfbereich und Logo */
 header {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .logo {
-    width: 120px;
+    width: 80px;
     animation: float 3s ease-in-out infinite;
 }
 
@@ -28,17 +28,17 @@ header {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-10px); /* Bewegung reduziert, um zu verhindern, dass das Logo außerhalb des Viewports verschwindet */
+        transform: translateY(-5px);
     }
 }
 
 /* Titel und Text */
 h1 {
-    font-size: 28px;
+    font-size: 24px;
     color: #333;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     animation: fadeIn 2s ease forwards;
     opacity: 0;
 }
@@ -51,13 +51,13 @@ h1 {
 /* Login-Hauptbox */
 .login-main {
     background-color: white;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* Einheitlicher Schatten für ein modernes Aussehen */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Einheitlicher Schatten für ein modernes Aussehen */
     width: 100%;
-    max-width: 400px;
+    max-width: 350px;
     margin: 0 auto;
-    animation: slideUp 1.5s ease-out forwards;
+    animation: slideUp 1s ease-out forwards;
     transform: translateY(50px);
     opacity: 0;
 }
@@ -78,121 +78,98 @@ label {
     font-weight: bold;
     text-align: left;
     display: block;
-    margin-top: 20px;
-}
-
-#register{
-    margin-right: 0.6cm;
-}
-
-#grund{
-    width: 405px;
-    border-radius: 5px;
-    margin-bottom: 20px;
+    margin-top: 15px;
 }
 
 /* Eingabefelder und Auswahlbox */
 input, select {
     width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 10px;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
     border: 1px solid #ccc;
-    font-size: 16px;
+    font-size: 14px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Leichter Schatten für moderne Eingabefelder */
 }
 
 /* Login-Button Stil */
 .login-btn {
     display: inline-block;
-    width: 50%;
-    margin: 20px 0;
-    padding: 15px;
+    width: 60%;
+    margin: 15px 0;
+    padding: 12px;
     background: linear-gradient(135deg, #72edf2, #5151e5);
     color: white;
     border: none;
     border-radius: 50px;
-    font-size: 18px;
+    font-size: 16px;
     cursor: pointer;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .login-btn:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
 }
 
+#register{
+    width: 92%;
+}
 /* Zurück-Button */
 .previous {
     display: inline-block;
     position: absolute;
-    left: 20px;
-    bottom: 20px;
-    padding: 10px 20px;
-    background-color: #5151e5; /* Gleiche Farbpalette wie bei anderen Elementen */
+    left: 15px;
+    bottom: 15px;
+    padding: 8px 15px;
+    background-color: #5151e5;
     color: white;
     text-decoration: none;
     border-radius: 50px;
-    font-size: 14px;
+    font-size: 12px;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Hover-Effekt für den Zurück-Button */
 .previous:hover {
     background-color: #407ac0;
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
-
-/* Responsives Design für das iPhone 12 und kleinere Geräte */
+/* Responsives Design */
 @media only screen and (max-width: 1170px) {
     .logo {
-        width: 80px; /* Verkleinere das Logo für kleinere Bildschirme */
+        width: 60px;
     }
 
     .login-main {
-        padding: 20px; /* Mehr Innenabstand für noch kleinere Bildschirme */
-        margin-left: 2cm;
-        margin-right: 2cm;
-        max-width: 100%; /* Stelle sicher, dass die Box den Rand nicht berührt */
+        padding: 15px;
+        margin-left: 1cm;
+        margin-right: 1cm;
+        max-width: 100%;
     }
 
     h1 {
-        font-size: 22px; /* Kleinere Schriftgröße für den Titel */
+        font-size: 20px;
     }
 
     .login-btn {
-        font-size: 16px;
-       
+        font-size: 14px;
     }
-#grund{
-    width: 9.3cm;
-}
-
-/* Zurück-Button */
-.previous {
-    display: inline-block;
-    position: absolute;
-    left: 5px;
-    bottom: 5px;
-    padding: 5px 10px;
-    background-color: #5151e5; /* Gleiche Farbpalette wie bei anderen Elementen */
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-size: 14px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
 
     input, select {
-        font-size: 14px; /* Kleinere Eingabefelder auf mobilen Geräten */
+        font-size: 12px;
+    }
+
+    .previous {
+        padding: 5px 10px;
+        font-size: 12px;
     }
 }
 
-/* Für sehr kleine Bildschirme (z.B. iPhone SE) */
+/* Für kleinere Bildschirme */
 @media only screen and (max-width: 768px) {
     .login-main {
-        padding: 15px; /* Noch mehr Padding für kleinere Geräte */
+        padding: 10px;
     }
 
     h1 {
@@ -200,11 +177,11 @@ input, select {
     }
 
     .login-btn {
-        font-size: 14px;
-        padding: 10px 20px;
+        font-size: 12px;
+        padding: 10px;
     }
 
     input, select {
-        font-size: 12px;
+        font-size: 10px;
     }
 }
