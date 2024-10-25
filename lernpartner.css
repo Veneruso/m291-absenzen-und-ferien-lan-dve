@@ -9,34 +9,37 @@ body {
     min-height: 100vh;
     text-align: center;
 }
- 
+
 /* Kopfbereich und Logo */
 header {
     margin-bottom: 30px;
 }
 
-#id{
+#id {
     width: 373px;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 20px;
 }
- 
+
 .logo {
     width: 120px;
     animation: float 3s ease-in-out infinite;
 }
- 
+
 /* Animation für das Logo */
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-15px);
     }
 }
- 
+
 /* Titel und Text */
 h1 {
     font-size: 32px;
@@ -47,12 +50,17 @@ h1 {
     animation: fadeIn 2s ease forwards;
     opacity: 0;
 }
- 
+
 @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
- 
+
 /* Login Hauptbox */
 .login-main {
     background-color: white;
@@ -66,18 +74,19 @@ h1 {
     transform: translateY(50px);
     opacity: 0;
 }
- 
+
 @keyframes slideUp {
     0% {
         opacity: 0;
         transform: translateY(50px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
     }
 }
- 
+
 /* Labels und Input-Felder */
 label {
     font-weight: bold;
@@ -85,7 +94,7 @@ label {
     display: block;
     margin-top: 20px;
 }
- 
+
 select,
 input {
     width: 100%;
@@ -96,7 +105,7 @@ input {
     font-size: 16px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
- 
+
 /* Login-Button Stil */
 .login-btn {
     display: inline-block;
@@ -111,12 +120,12 @@ input {
     cursor: pointer;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
- 
+
 .login-btn:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     transform: translateY(-3px);
 }
- 
+
 /* Zurück-Button */
 .previous {
     display: inline-block;
@@ -124,7 +133,8 @@ input {
     left: 20px;
     bottom: 20px;
     padding: 10px 20px;
-    background-color: #5151e5; /* Gleiche Farbpalette wie bei anderen Elementen */
+    background-color: #5151e5;
+    /* Gleiche Farbpalette wie bei anderen Elementen */
     color: white;
     text-decoration: none;
     border-radius: 50px;
@@ -141,65 +151,73 @@ input {
     background-color: #407ac0;
 }
 
- 
+
 .previous:hover {
     background-color: #407ac0;
 }
 
 
-  
+
 
 /* Responsives Design für das iPhone 12 und kleinere Geräte */
 @media only screen and (max-width: 1170px) {
     .logo {
-        width: 80px; /* Verkleinere das Logo für kleinere Bildschirme */
+        width: 80px;
+        /* Verkleinere das Logo für kleinere Bildschirme */
         padding-top: 1cm;
     }
 
     .login-main {
-        padding: 20px; /* Mehr Innenabstand für noch kleinere Bildschirme */
+        padding: 20px;
+        /* Mehr Innenabstand für noch kleinere Bildschirme */
         margin-left: 2cm;
         margin-right: 2cm;
-        max-width: 100%; /* Stelle sicher, dass die Box den Rand nicht berührt */
+        max-width: 100%;
+        /* Stelle sicher, dass die Box den Rand nicht berührt */
         width: 84%;
     }
 
     h1 {
-        font-size: 22px; /* Kleinere Schriftgröße für den Titel */
+        font-size: 22px;
+        /* Kleinere Schriftgröße für den Titel */
     }
 
-    
+
 
     .login-btn {
         font-size: 16px;
-       
+
     }
 
 
-/* Zurück-Button */
-.previous {
-    display: inline-block;
-    position: absolute;
-    left: 5px;
-    bottom: 5px;
-    padding: 5px 10px;
-    background-color: #5151e5; /* Gleiche Farbpalette wie bei anderen Elementen */
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-size: 14px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
+    /* Zurück-Button */
+    .previous {
+        display: inline-block;
+        position: absolute;
+        left: 5px;
+        bottom: 5px;
+        padding: 5px 10px;
+        background-color: #5151e5;
+        /* Gleiche Farbpalette wie bei anderen Elementen */
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 14px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
 
-    input, select {
-        font-size: 14px; /* Kleinere Eingabefelder auf mobilen Geräten */
+    input,
+    select {
+        font-size: 14px;
+        /* Kleinere Eingabefelder auf mobilen Geräten */
     }
 }
 
 /* Für sehr kleine Bildschirme (z.B. iPhone SE) */
 @media only screen and (max-width: 768px) {
     .login-main {
-        padding: 15px; /* Noch mehr Padding für kleinere Geräte */
+        padding: 15px;
+        /* Noch mehr Padding für kleinere Geräte */
     }
 
     h1 {
@@ -211,7 +229,8 @@ input {
         padding: 10px 20px;
     }
 
-    input, select {
+    input,
+    select {
         font-size: 12px;
     }
 }

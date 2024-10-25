@@ -41,8 +41,26 @@
 
             <a href="login.html" class="previous">&laquo; Zurück</a>
 
+            <div id="successMessage" class="success-message" style="display: none;">
+                Absenz abgeschickt!
+            </div>
         </main>
     </div>
+
+    <style>
+        .success-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #60a7dc;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+    </style>
 
     <script>
         const register = Vue.createApp({
@@ -54,7 +72,7 @@
                         StartTime: "",
                         ToDate: "",
                         EndTime: "",
-                        Reason: "Ferien", // Standard auf "Ferien"
+                        Reason: "Ferien",
                     }
                 };
             },
@@ -73,26 +91,31 @@
                     absenzen.push(vacationData);
                     localStorage.setItem('absenzen', JSON.stringify(absenzen));
 
-                    // Nur Ferientage abziehen, wenn der Grund "Ferien" ist
                     if (this.vacation.Reason === 'Ferien') {
                         const startDate = new Date(this.vacation.FromDate);
                         const endDate = new Date(this.vacation.ToDate);
                         const timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
-                        const daysDifference = Math.ceil(timeDiff / (1000 * 3600 * 24)) + 1; // Berechnet die Anzahl der Tage inklusive Enddatum
+                        const daysDifference = Math.ceil(timeDiff / (1000 * 3600 * 24)) + 1;
 
                         let ferienData = JSON.parse(localStorage.getItem('ferienData')) || {};
                         let studentID = localStorage.getItem('lernpartnerId');
                         let ferienTage = ferienData[studentID] || 25;
 
-                        // Überprüfen, ob genügend Ferientage übrig sind
                         if (ferienTage >= daysDifference) {
                             ferienTage -= daysDifference;
-                            ferienData[studentID] = ferienTage; // Speichern für den aktuellen Nutzer
+                            ferienData[studentID] = ferienTage;
                             localStorage.setItem('ferienData', JSON.stringify(ferienData));
                         } else {
                             alert("Nicht genügend Ferientage verfügbar.");
+                            return;
                         }
                     }
+
+                    const message = document.getElementById("successMessage");
+                    message.style.display = "block";
+                    setTimeout(() => {
+                        message.style.display = "none";
+                    }, 3000);
                 }
             }
         }).mount("#register");

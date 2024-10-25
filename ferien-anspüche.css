@@ -1,25 +1,31 @@
 /* Tabelle */
 table {
-    width: 60%; /* Breite leicht erhöht, um mehr Platz zu nutzen */
+    width: 60%;
+    /* Breite leicht erhöht, um mehr Platz zu nutzen */
     margin: 20px auto;
     border-collapse: collapse;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* Einheitlicher Schatteneffekt */
-    background-color: #fff; /* Heller Hintergrund für moderne Ästhetik */
-    border-radius: 10px; /* Abgerundete Ecken für ein weicheres Erscheinungsbild */
-    overflow: hidden; /* Überlauf für abgerundete Kanten */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    /* Einheitlicher Schatteneffekt */
+    background-color: #fff;
+    /* Heller Hintergrund für moderne Ästhetik */
+    border-radius: 10px;
+    /* Abgerundete Ecken für ein weicheres Erscheinungsbild */
+    overflow: hidden;
+    /* Überlauf für abgerundete Kanten */
     font-family: 'Roboto', sans-serif;
 }
 
 /* Tabellenüberschrift */
 th {
     padding: 15px 20px;
-    background-color: #5151e5; /* Einheitliche Farbe im gesamten Design */
+    background-color: #5151e5;
+    /* Einheitliche Farbe im gesamten Design */
     color: white;
     font-size: 18px;
     text-transform: uppercase;
     letter-spacing: 1px;
     text-align: left;
-    
+
 }
 
 /* Tabellenzellen */
@@ -28,17 +34,19 @@ td {
     border: 1px solid #ddd;
     font-size: 16px;
     color: #333;
-    
+
 }
 
 /* Zeilen mit abwechselnden Hintergrundfarben */
 tr:nth-child(even) {
-    background-color: #f5f7fa; /* Sanfterer Farbton für abwechselnde Zeilen */
+    background-color: #f5f7fa;
+    /* Sanfterer Farbton für abwechselnde Zeilen */
 }
 
 /* Tabellenzeilen Hover-Effekt */
 tr:hover {
-    background-color: #e0e7ff; /* Hover-Effekt für interaktive Elemente */
+    background-color: #e0e7ff;
+    /* Hover-Effekt für interaktive Elemente */
 }
 
 /* Titel */
@@ -60,7 +68,8 @@ h1 {
     left: 20px;
     bottom: 20px;
     padding: 10px 20px;
-    background-color: #5151e5; /* Gleiche Farbpalette wie bei anderen Elementen */
+    background-color: #5151e5;
+    /* Gleiche Farbpalette wie bei anderen Elementen */
     color: white;
     text-decoration: none;
     border-radius: 50px;

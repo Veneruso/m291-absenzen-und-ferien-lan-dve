@@ -23,7 +23,8 @@ main {
     min-height: 100vh;
 }
 
-.login-main, .auswahl-main {
+.login-main,
+.auswahl-main {
     background-color: #e0ebff;
     padding: 40px;
     border-radius: 15px;
@@ -32,7 +33,9 @@ main {
     text-align: center;
 }
 
-button, .login-btn, .option-btn {
+button,
+.login-btn,
+.option-btn {
     padding: 10px 20px;
     background-color: #5c9cf0;
     color: white;
@@ -46,7 +49,9 @@ button, .login-btn, .option-btn {
     text-decoration: none;
 }
 
-button:hover, .login-btn:hover, .option-btn:hover {
+button:hover,
+.login-btn:hover,
+.option-btn:hover {
     background-color: #407ac0;
 }
 
@@ -68,7 +73,8 @@ button:hover, .login-btn:hover, .option-btn:hover {
     background-color: #407ac0;
 }
 
-input, select {
+input,
+select {
     width: 100%;
     padding: 10px;
     margin: 10px 0;

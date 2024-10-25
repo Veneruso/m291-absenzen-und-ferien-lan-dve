@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ferienansprüche</title>
     <link rel="stylesheet" href="ferien-anspüche.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    
+
 </head>
+
 <body>
     <header>
         <img src="assets/images/sbw-logo.svg" alt="SBW Logo" class="logo">
@@ -38,7 +40,7 @@
             data() {
                 return {
                     studentName: localStorage.getItem('lernpartnerName') || 'Unbekannt',
-                    ferienTage: 25 // Standardwert, falls keine Daten vorhanden sind
+                    ferienTage: 25
                 };
             },
             methods: {
@@ -49,9 +51,10 @@
                 }
             },
             mounted() {
-                this.getRemainingFerienTage(); // Beim Laden der Seite die verbleibenden Ferientage holen
+                this.getRemainingFerienTage();
             }
         }).mount('#ferienAnspruchApp');
     </script>
 </body>
+
 </html>
